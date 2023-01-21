@@ -2,8 +2,42 @@ import React, {useState} from 'react';
 import { Link, useNavigate, redirect } from "react-router-dom"
 import NavBar from './NavBar';
 
-import SearchBar from './searchBar';
+import handleSubmit from '../handlesubmit';
+import { useRef } from 'react';
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
+
+function writeUserData(data) {
+    const db = getDatabase();
+    set(ref(db, 'testing2!!!'), {
+      test_key: data
+    });
+  }
+
+// const db = getDatabase();
+// const companiesRef = ref(db, '/Companies/');
+// onValue(companiesRef, (snapshot) => {
+//     const data = snapshot.val();
+// });
+
+var ref1 = firebase.database().ref();
+
+ref1.on("value", function(snapshot) {
+   console.log(snapshot.val());
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+
+
+
+// function writeUserData(userId, name, email, imageUrl) {
+//   const db = getDatabase();
+//   set(ref(db, 'users/' + userId), {
+//     username: name,
+//     email: email,
+//     profile_picture : imageUrl
+//   });
+// }
 
 const Home = () => {
 
@@ -41,12 +75,6 @@ const Home = () => {
     ];
 
     // const countries_upper = countries.map(x => {name: x.name.toUpperCase(), continent: x.continent});
-
-    // function handleChange(e) {
-    //     e.preventDefault();
-    //     setSearchInput(e.target.value);
-    //     console.log("a change happened");
-    // };
     
     function searchResults() {
         if (searchInput.length > 0) {
@@ -55,6 +83,14 @@ const Home = () => {
         } else {
             return countries;
         }
+    }
+
+    //posting to firebase:
+    const dataRef = useRef()
+    const submithandler = (e) => {
+        e.preventDefault()
+        handleSubmit(dataRef.current.value)
+        dataRef.current.value = ""
     }
 
     return (
@@ -93,11 +129,20 @@ const Home = () => {
                         </div>
                     ))}
                     </table>
-
                 </div>
+
+                <div className="App">
+                    <form onSubmit={submithandler}>
+                        <input type= "text" ref={dataRef} />
+                        <button type = "submit">Save</button>
+                    </form>
+                </div>
+
+                <button onClick={writeUserData("hello")}>this is a button to submit "hello"</button>
+                <p>companies, read from firebase: </p>
                 
-
-
+                {data}
+                
             </div>
         </div>
     )

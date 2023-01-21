@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Results from './components/Results';
 import Company from './components/Company';
 
+
 import { Route, Routes, BrowserRouter, Link, useNavigate} from 'react-router-dom';
 
 
@@ -14,9 +15,6 @@ function App() {
   const toHome = () => {
     navigate('/')
   }
-
-  // var __html = require('./components/searchbar_test.html');
-
 
   return (
     <div className="App">
@@ -29,6 +27,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
+      
 
 
       
