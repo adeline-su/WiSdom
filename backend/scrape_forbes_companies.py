@@ -54,17 +54,19 @@ website_array_emp = []
 
 
 i = 0
-array = []
+scrape_result = []
 while i < 400 :
-    array.append(
-        [website_table_rank[i].string, 
-        website_table_orgName[i].string,
-        website_table_industries[i].string,
-        website_table_country[i].string,
-        website_table_emp[i].string])
+    scrape_result.append(
+        {"Rank": website_table_rank[i].string[:-1], 
+        "Organization Name" : website_table_orgName[i].string,
+        "Industries" : website_table_industries[i].string,
+        "Country" : website_table_country[i].string,
+        "Employees": website_table_emp[i].string})
     i += 1
 
-print(array)
+def get_scrape_result():
+    return scrape_result
+#print(scrape_result)
 
 # for rank in website_table_rank :
 #     website_array_rank.append(rank.string)

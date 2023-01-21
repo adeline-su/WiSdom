@@ -52,7 +52,7 @@ soup = BeautifulSoup(source.text, 'html.parser')
 data = json.loads(soup.prettify())
 
 file = open('C:\Users\suade\uofthacks\WiSdom\temp-webscraping\soup.txt', 'r+w')
-for line in 
+#for line in 
 with open('soup.json', 'w') as outfile :
     json.dump(data, outfile)
 
