@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate, redirect } from "react-router-dom"
+import { Link, useNavigate, redirect } from "react-router-dom";
 
 
 const Results = () => {
@@ -8,7 +8,7 @@ const Results = () => {
 
     return (
         <div>
-            <p>Hello, this is the results page</p>
+        <p>Hello, this is the results page</p>
             <Link to='/'>
                 <button className='back'>Bring me back home</button>
             </Link>
