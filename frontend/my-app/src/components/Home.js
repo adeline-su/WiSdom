@@ -5,14 +5,13 @@ import NavBar from './NavBar';
 import handleSubmit from '../handlesubmit';
 import { useRef } from 'react';
 import { getDatabase, ref, set, onValue } from "firebase/database";
+import { collection, doc, setDoc } from "firebase/firestore"; 
 
 const database = getDatabase();
 
-
-
 function writeUserData(data) {
     const db = getDatabase();
-    set(ref(db, 'testing2!!!'), {
+    set(ref(db, 'testing3!!!'), {
       test_key:data
     });
   }
@@ -73,13 +72,22 @@ const Home = () => {
 
     ];
 
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
    
-    function readUserData() {
-        var data;
+    // function readUserData() {
+    //     onValue(ref(database, '/Companies'), (snapshot) => {
+    //         setData(snapshot.val());
+    //         console.log(snapshot.val());
+    //     });
+    //     return data;
+    // }
+    var data;
+    const readUserData = () => {
         onValue(ref(database, '/Companies'), (snapshot) => {
-            setData(snapshot.val());
-            console.log(snapshot.val());
+            data = snapshot.val();
+            console.log(data);
+            console.log(Object.keys(data));
+            console.log("i've visited readUserData");
         });
         return data;
     }
@@ -152,7 +160,6 @@ const Home = () => {
                 <p>companies, read from firebase: </p>
                 
                 <p>{readUserData()}</p>
-                
             </div>
         </div>
     )
