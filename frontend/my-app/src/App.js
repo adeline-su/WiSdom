@@ -15,7 +15,7 @@ function App() {
     navigate('/')
   }
 
-  var __html = require('./components/searchbar_test.html');
+  // var __html = require('./components/searchbar_test.html');
 
 
   return (
@@ -29,7 +29,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      __html
+      {/* __html */}
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
