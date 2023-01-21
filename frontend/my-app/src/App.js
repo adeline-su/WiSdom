@@ -15,6 +15,9 @@ function App() {
     navigate('/')
   }
 
+  var __html = require('./components/searchbar_test.html');
+
+
   return (
     <div className="App">
 
@@ -25,6 +28,8 @@ function App() {
           <Route path='/company-profile' exact element={<Company />} />
         </Routes>
       </BrowserRouter>
+
+      __html
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
