@@ -3,6 +3,7 @@ import React, {useState } from 'react'
 
 const Review = () => {
 
+    const [rank, setrank] = useState('')
     const [companyTitle, setcompanyTitle] = useState('')
     const [country, setcountry] = useState('')
     const [companySize, setcompanySize] = useState('')
@@ -16,7 +17,7 @@ const Review = () => {
     return (
         <div className='body-wrapper'>
             {
-            <h1>{companyTitle}</h1>
+                <h1>{"test"}</h1>
 
             }
         </div>

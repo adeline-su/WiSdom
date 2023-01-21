@@ -4,10 +4,6 @@
   --dark: #9EB4EC;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media only screen and (max-width: 1440px) {
   body {
@@ -28,26 +24,16 @@
     position: relative;
 }
 
-.App-header {
-  background-color: var(--light);
-  min-height: 100vh;
+header {
+  position: fixed;
+  top: 0;
+  width: calc(50vh - 48px);
+  padding: 24px;
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.nav-links {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  justify-content: space-between;
 }
