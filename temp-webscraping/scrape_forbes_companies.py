@@ -64,6 +64,7 @@ while i < 400 :
         website_table_emp[i].string])
     i += 1
 
+
 print(array)
 
 # for rank in website_table_rank :
