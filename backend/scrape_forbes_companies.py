@@ -35,14 +35,13 @@ website_array_country = []
 website_array_emp = []
 
 i = 0
-scrape_result = []
-while i < 400 :
-    scrape_result.append(
-        {"Rank": website_table_rank[i].string[:-1], 
-        "Organization Name" : website_table_orgName[i].string,
-        "Industries" : website_table_industries[i].string,
-        "Country" : website_table_country[i].string,
-        "Employees": website_table_emp[i].string})
+scrape_result = {}
+while i < 400 : #get the first 400 results from the source website
+    scrape_result[website_table_orgName[i].string] ={"Organization Name": website_table_orgName[i].string,
+                                                     "Rank": website_table_rank[i].string[:-1], 
+                                                    "Industries" : website_table_industries[i].string,
+                                                    "Country" : website_table_country[i].string,
+                                                    "Employees": website_table_emp[i].string }
     i += 1
 
 def get_scrape_result():
