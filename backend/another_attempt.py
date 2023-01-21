@@ -3,7 +3,7 @@ from firebase_admin import db
 import json
 
 
-cred_object = firebase_admin.credentials.Certificate('/Users/juliazhu/Downloads/wisdom-fdb61-firebase-adminsdk-x76z7-e0b3d77315.json')
+cred_object = firebase_admin.credentials.Certificate(r"\Users\suade\uofthacks\wisdom-fdb61-firebase-adminsdk-x76z7-94e7f12e91.json")
 default_app = firebase_admin.initialize_app(cred_object, {
 	'databaseURL':"https://wisdom-fdb61-default-rtdb.firebaseio.com/"
 	})
