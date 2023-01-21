@@ -6,27 +6,26 @@ import handleSubmit from '../handlesubmit';
 import { useRef } from 'react';
 import { getDatabase, ref, set, onValue } from "firebase/database";
 
+const database = getDatabase();
+
+
 
 function writeUserData(data) {
     const db = getDatabase();
     set(ref(db, 'testing2!!!'), {
-      test_key: data
+      test_key:data
     });
   }
 
-// const db = getDatabase();
-// const companiesRef = ref(db, '/Companies/');
-// onValue(companiesRef, (snapshot) => {
-//     const data = snapshot.val();
+
+
+// var ref1 = firebase.database().ref();
+
+// ref1.on("value", function(snapshot) {
+//    console.log(snapshot.val());
+// }, function (error) {
+//    console.log("Error: " + error.code);
 // });
-
-var ref1 = firebase.database().ref();
-
-ref1.on("value", function(snapshot) {
-   console.log(snapshot.val());
-}, function (error) {
-   console.log("Error: " + error.code);
-});
 
 
 
@@ -73,6 +72,17 @@ const Home = () => {
     { name: "Pakistan", continent: "Asia" }
 
     ];
+
+    const [data, setData] = useState([]);
+   
+    function readUserData() {
+        var data;
+        onValue(ref(database, '/Companies'), (snapshot) => {
+            setData(snapshot.val());
+            console.log(snapshot.val());
+        });
+        return data;
+    }
 
     // const countries_upper = countries.map(x => {name: x.name.toUpperCase(), continent: x.continent});
     
@@ -141,7 +151,7 @@ const Home = () => {
                 <button onClick={writeUserData("hello")}>this is a button to submit "hello"</button>
                 <p>companies, read from firebase: </p>
                 
-                {data}
+                <p>{readUserData()}</p>
                 
             </div>
         </div>
