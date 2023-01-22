@@ -50,7 +50,7 @@ function PostReviewBox() {
     //const navigate = useNavigate
 
     return ( 
-     <div style={{marginTop : 100}}>
+     <div className = 'page-wrapper'>
 
      {/* this is the tutorial
      <div className="App" style={{marginTop : 250}}>
@@ -67,9 +67,9 @@ function PostReviewBox() {
           <p> Post your review! </p>
 
           {/* <form onSubmit={submithandler}> */}
-               <input className = 'reviewbox'
+               <textarea className = 'reviewbox'
                     type = "text"
-                    placeholder="Share you experience at this company"
+                    placeholder="Share your experience at this company"
                     onChange={(e) => setReviewInput(e.target.value)}
                     value={reviewInput} />
                     {console.log("Log:",reviewInput)}

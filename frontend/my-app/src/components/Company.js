@@ -22,7 +22,7 @@ const Company = () => {
             <div> {/* review section */}
                 <PostReviewBox/>
 
-                review history
+                User Reviews:
             </div>
 
             

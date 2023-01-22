@@ -30,7 +30,7 @@ var data_values;
 const ReviewHistory = () => {
 
     return ( 
-     <div className="App">
+     <div className="page-wrapper">
         User Reviews:
         {data_values.map((val, index) => (
             <div key={index}>{val}</div>
