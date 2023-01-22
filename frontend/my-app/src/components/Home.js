@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import { Link, useNavigate, redirect } from "react-router-dom"
 import NavBar from './NavBar';
 
-import handleSubmit from '../handlesubmit';
 import { useRef } from 'react';
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import { collection, doc, setDoc } from "firebase/firestore"; 
 
 const database = getDatabase();
 
+
 // function writeUserData(data) {
-//     const db = getDatabase();
+//     const db = getDatabase();s
 //     set(ref(db, 'testing3!!!'), {
 //       test_key:data
 //     });
@@ -83,6 +83,7 @@ const Home = () => {
     //         "Rank": "4"
     //     }]
     
+    //fetches from firebase
     var data_values;
     onValue(ref(database, '/Companies'), (snapshot) => {
         const data = snapshot.val();
