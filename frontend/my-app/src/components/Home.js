@@ -213,20 +213,20 @@ const Home = () => {
             <NavBar/>
             </div>
             <div className='page-wrapper'>
-                <div className='container'>
-                    <p>Hello, this is the home page</p>
-                    <Link to='/results'>
-                        <button className='body'>Show me the results</button>
-                    </Link>
-                </div>
+                    <div className='title'>
+                        Welcome to WiSdom!
+                    </div>
+                    <div className='description'>
+                        WiSdom is a space for women and non-binary individuals to connect, explore and further understand their career paths and futures within STEM industries. Get started below:  
+                    </div>
 
-                <p>search bar: </p>
+                <p>Find an Organization: </p>
                 <div>
-                    <input
-                    type="search"
-                    placeholder="Search here"
-                    onChange={(e) => setSearchInput(e.target.value)}
-                    value={searchInput} />
+                    <input className = 'searchbox'
+                        type="search"
+                        placeholder="Search here"
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        value={searchInput} />
 
                     <table>
                     <tr>

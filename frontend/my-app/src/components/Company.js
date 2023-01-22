@@ -15,6 +15,11 @@ const Company = () => {
                     Create a New Review
                 </button>
             </Link>
+            <Link to ='/'>
+                <button className='backhome'> 
+                    Take me back home
+                </button>
+            </Link>
         </div>
         
     )
