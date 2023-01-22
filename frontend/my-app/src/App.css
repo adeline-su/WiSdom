@@ -8,16 +8,23 @@
 
 
 }
+@media only screen and (max-width: 1440px) {}
 
-@media only screen and (max-width: 1440px) {
   body {
     background-color: var(--lightblue)
     
   }
 
   .body-wrapper {
-    width: 100vw !important;
-    border-radius: 15px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      margin-left: 96px;
+      margin-right: 96px;
+      border-radius: 8px;
+      height: auto;
+      background-color: var(--darkblue);
+      padding: 24px;
+      box-shadow: var(--shadow);
   }
 
   nav-bar {
@@ -28,10 +35,11 @@
     max-height: 48px;
     font-size: 12px;
     box-shadow: 10px, 10px, 10px var(--shadow);
+    margin-bottom: 12px;
+
 
 
   }
-}
 
 * {
   font-family: 'Sora', sans-serif;
@@ -41,6 +49,7 @@
   font-weight: normal;
 }
 
+/*
 .body-wrapper {
   margin: auto;
   width: 100vh;
@@ -48,6 +57,8 @@
   background-color: var(--darkblue);
   position: relative;
 }
+
+*/
 
 .page-wrapper {
   padding: 24px;
@@ -57,7 +68,7 @@
 
 /* changes the font I think and placement? */
 .nav-wrapper {
-  padding-top: 16px;
+  padding-top: 19px;
   padding-bottom: 16px;
   font-size: 12px;
   background-color: var(--darkblue);
@@ -65,32 +76,16 @@
   max-height: 48px;
   box-shadow: 10px, 10px, 10px var(--shadow);
   position: absolute;
-  width: 1440px;
+  width: 100%;
   left: 0px;
   top: 0px;
+  margin-bottom: 12px;
+
+
 
 
 }
 
-nav-bar {
-  position: relative;
-  font-size: 12px;
-  /* background-color: var(--color3); */
-  /* bottom: 0; */
-  /* top: 0; */
-  /* width: 400px;
-  height: 200px; */
-  /* width: calc(100vh - 100px); */
-  padding: 60px;
-
-  /* padding-left: 10px;
-  padding-right: 10px; */
-  /* margin: auto; */
-  /* color: var(--color3); */
-  max-height: 48px;
-  box-shadow: 10px, 10px, 10px var(--shadow);
-
-}
 
 a:link {
   text-decoration: none;
@@ -113,14 +108,12 @@ a:hover {
 
 }
 
-
+/* messes around with the actual text */
 .nav-links {
   display: flex;
   justify-content: right;
   background-color: var(--darkblue);
-  max-height: 48px;
   font-size: 12px;
-
 }
 
 button {
@@ -143,10 +136,10 @@ button {
   font-size: 40px;
   color: var(--dark);
   font-weight: normal;
-  margin-left: 192px;
   margin-bottom: 24px;
-  text-align: left;
-  margin-top: 12vh;
+  text-align: center;
+  margin-top: 100px;
+
 }
 
 .App {
@@ -167,16 +160,15 @@ margin: 10px;
 
 .description{
   font-size: 20px;
-  margin-left: 192px;
-  margin-right: 96px;
   margin-top: 10px;
-  margin-bottom: 24px;
-  text-align: left;
-  max-width: 35%;
+  margin-bottom: 64px;
+  text-align: center;
+  max-width: 50%;
   letter-spacing: 1px;
   line-height: 1.2;
+}
 
-
-
-
+.searchresult{
+  font-size: 24px;
+  text-align: left;
 }
