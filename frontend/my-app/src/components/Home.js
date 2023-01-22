@@ -142,56 +142,43 @@ const Home = () => {
     }
 
     return (
-        <div className='body-wrapper'>
-            <div className='nav-wrapper'>
-            <NavBar/>
+        <div className='page-wrapper'>
+            <div className='body-wrapper'>
+                <div className='nav-wrapper'>
+                    <NavBar/>
+                </div>
             </div>
-            <div className='page-wrapper'>
-                    <div className='title'>
-                        Welcome to WiSdom!
-                    </div>
-                    <div className='description'>
-                        WiSdom is a space for women and non-binary individuals to connect, explore and further understand their career paths and futures within STEM industries. Begin gaining WiSdom today!  
-                    </div>
-
+                <div className='title'>
+                    Welcome to WiSdom!
+                </div>
+                <div className='description'>
+                    WiSdom is a space for women and non-binary individuals to connect, explore and further understand their career paths and futures within STEM industries. Begin gaining WiSdom today!  
+            </div>
+            <div className='body-wrapper'>
                 <p>Find an Organization: </p>
                 <div>
-                    <input className = 'searchbox'
+                    <input className = 'searchbar'
                         type="search"
                         placeholder="Search here"
                         onChange={(e) => setSearchInput(e.target.value)}
                         value={searchInput} />
 
-                    <table>
-                    <tr>
-                        <th>Organization Name:</th>
-                    </tr>                    
+                        <table>
+                            <tr>
+                                <th>Organization Name:</th>
+                            </tr>                    
 
-                    {/* one sample thingy */}
-                    {searchResults().map((company) => (
-                        <div>
-                        <tr>
-                            <td>{company.OrganizationName}</td>
-                            {/* <td>{country.continent}</td> */}
-                        </tr>
-                        </div>
-                    ))}
-                    
-                    </table>
+                            {/* one sample thingy */}
+                            {searchResults().map((company) => (
+                                <div>
+                                <tr>
+                                    <td>{company.OrganizationName}</td>
+                                    {/* <td>{country.continent}</td> */}
+                                </tr>
+                                </div>
+                            ))}      
+                        </table>
                 </div>
-
-                {/* <div className="App">
-                    <form onSubmit={submithandler}>
-                        <input type= "text" ref={dataRef} />
-                        <button type = "submit">Save</button>
-                    </form>
-                </div>
-
-                <button onClick={writeUserData("hello")}>this is a button to submit "hello"</button>
-                <p>companies, read from firebase: </p> */}
-                
-                {/* <p>{readData()}</p> */}
-                
             </div>
         </div>
     )
