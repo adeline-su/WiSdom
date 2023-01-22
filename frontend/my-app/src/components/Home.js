@@ -148,7 +148,7 @@ const Home = () => {
                     <NavBar/>
                 </div>
             </div>
-                <div className='title'>
+                <div className='titlehome'>
                     Welcome to WiSdom!
                 </div>
                 <div className='description'>
