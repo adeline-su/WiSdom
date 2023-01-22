@@ -142,16 +142,16 @@ const Home = () => {
     }
 
     return (
-        <div className='body-wrapper'>
+        <div className='page-wrapper'>
             <div className='nav-wrapper'>
-            <NavBar/>
+                <NavBar/>
             </div>
-            <div className='page-wrapper'>
+            <div className='body-wrapper'>
                     <div className='title'>
-                        Welcome to WiSdom!
+                        WiSdom
                     </div>
                     <div className='description'>
-                        WiSdom is a space for women and non-binary individuals to connect, explore and further understand their career paths and futures within STEM industries. Get started below:  
+                        WiSdom is a space for women and non-binary individuals to connect, explore and further understand their career paths and futures within STEM industries. Begin gaining WiSdom today!  
                     </div>
 
                 <p>Find an Organization: </p>
@@ -161,7 +161,8 @@ const Home = () => {
                         placeholder="Search here"
                         onChange={(e) => setSearchInput(e.target.value)}
                         value={searchInput} />
-
+            </div>
+            <div className='block-wrapper'>
                     <table>
                     <tr>
                         <th>Organization Name:</th>
