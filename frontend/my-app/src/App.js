@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
-import Results from './components/Results';
 import Company from './components/Company';
 
 
@@ -22,7 +21,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' exact element={<Home/>} />
-          <Route path='/results' exact element={<Results/>} />
           <Route path='/company-profile' exact element={<Company />} />
         </Routes>
       </BrowserRouter>
