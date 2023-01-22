@@ -45,7 +45,7 @@ function CompanyInfo(){
                     Here's some info on {data_values[0].OrganizationName}: 
                 </div>
                 <p className = 'companydescription'>
-                    Ranking: {data_values[0].Rank}
+                    'Female Friendly' Ranking: {data_values[0].Rank}
                 </p>
                 <p className = 'companydescription'>
                     Country: {data_values[0].Country}
