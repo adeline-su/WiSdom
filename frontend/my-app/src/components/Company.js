@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate, redirect } from "react-router-dom"
 import PostReviewBox from './PostReview';
+import NavBar from './NavBar';
 // import ReviewHistory from 'ReviewHistory';
 
 
@@ -9,7 +10,12 @@ const Company = () => {
     const navitage = useNavigate()
 
     return (
-        <div>
+        <div className='page-wrapper'>
+            <div className='body-wrapper'>
+                <div className='nav-wrapper'>
+                    <NavBar/>
+                </div>
+            </div>
             <p>Hello, this is a Company Profile page</p>
             {/* <Link to ='/review'>
                 <button className='newReview'>
