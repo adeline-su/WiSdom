@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
 
-      <BrowserRouter> 
+      <BrowserRouter>
         <Routes>
           <Route path='/' exact element={<Home/>} />
           <Route path='/company-profile' exact element={<Company />} />
