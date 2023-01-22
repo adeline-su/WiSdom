@@ -5,7 +5,9 @@ import NavBar from './NavBar';
 import handleSubmit from '../handlesubmit';
 import { useRef } from 'react';
 import { getDatabase, ref, set, onValue } from "firebase/database";
-import { collection, doc, setDoc } from "firebase/firestore"; 
+import { collection, doc, setDoc } from "firebase/firestore";  
+import setReviewInput from './PostReview';
+import reviewInput from './PostReview';
 
 const database = getDatabase();
 
@@ -32,20 +34,36 @@ function CompanyInfo(){
 
 
     return (
-        <div className="App">
-                
-            <p>
-                Here's some info: 
-                Company: {data_values[0].OrganizationName}
-                Ranking: {data_values[0].Rank}
-                Country: {data_values[0].Country}
-                Number of Employees: {data_values[0].Employees}
-                Industries: {data_values[0].Industries}
-                {console.log("Hi",data_values[0])}
-                
-                more real time data to add here
-            </p>
-               
+        <div className="page-wrapper">
+            <div className='nav-wrapper'>
+                <NavBar/>
+            </div>
+            <div className = 'description'>
+            </div> 
+            <div className = 'body-company'>     
+                <div className = 'titlecompany'>
+                    Here's some info on {data_values[0].OrganizationName}: 
+                </div>
+                <p className = 'companydescription'>
+                    Ranking: {data_values[0].Rank}
+                </p>
+                <p className = 'companydescription'>
+                    Country: {data_values[0].Country}
+                </p>
+                <p className ='companydescription'>
+                    Number of Employees: {data_values[0].Employees}
+                </p>
+                <p className = 'companydescription'>
+                    Industries: {data_values[0].Industries}
+                    {console.log("Hi",data_values[0])}             
+                </p>
+            </div> 
+            <input className = 'reviewbox1'
+                    type = "text"
+                    placeholder="Share your experience at this company"
+                    onChange={(e) => setReviewInput(e.target.value)}
+                    value={reviewInput} />
+                    {console.log("Log:",reviewInput)}  
         </div>
     )
 }

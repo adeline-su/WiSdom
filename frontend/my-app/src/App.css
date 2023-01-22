@@ -24,6 +24,15 @@
     padding: 12px;
   }
 
+  .body-company {
+    border-radius: 80px;
+    background-color: var(--darkblue);
+    width: 850px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 24px;
+  }
+
   nav-bar {
     width: 100%;
     box-shadow: var(--shadow);
@@ -86,11 +95,19 @@ a:visited {
 /* mouse over link */
 a:hover {
   font-weight: bolder;
-  background: rgba(105, 136, 216, 0.3);
-  border-radius: 15px;
-  padding: 5px;
-  max-height: 48px;
+  }
 
+button:hover {
+  font-weight: 1000;
+  margin: 10px;
+  background:  rgba(158,180,236, 0.7);
+  border: 0;
+  width: relative;
+  height: relative;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
 
@@ -111,14 +128,14 @@ button {
   height: relative;
   text-align: center;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 100;
   padding: 12px;
   border-radius: 12px;
   box-shadow: var(--shadow);
 
 }
 
-.title {
+.titlehome {
   font-family: 'Sora', sans-serif;
   font-size: 40px;
   color: var(--dark);
@@ -126,6 +143,16 @@ button {
   margin-bottom: 24px;
   text-align: center;
   margin-top: 94px;
+}
+
+.titlecompany {
+  font-family: 'Sora', sans-serif;
+  font-size: 40px;
+  color: var(--dark);
+  font-weight: normal;
+  margin-bottom: 24px;
+  text-align: center;
+  margin-top: 24px;
 }
 
 .App {
@@ -156,6 +183,16 @@ border-width: 2px;
   line-height: 1.2;
 }
 
+.companydescription{
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  max-width: 60%;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
 .resultbox{
   background: #FFFFFF;
   border-radius: 2px;
@@ -167,6 +204,18 @@ border-width: 2px;
 
 }
 
-.buttonBackhome {
-}
+.reviewbox1{
+  margin: 12px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  border-color: var(--dark);
+  border-style: solid;
+  border-width: 1px;
+  /* text-align: left; */
+  width: 750px;
+  height: min-content;
+  text-indent: 25px;
+  text-align: start;
+  overflow-wrap: break-word;
 
+}

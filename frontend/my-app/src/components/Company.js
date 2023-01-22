@@ -15,26 +15,11 @@ const Company = () => {
         
         <div className='page-wrapper'>
 
-            <div className='body-wrapper'>
-                <div className='nav-wrapper'>
-                    <NavBar/>
-                </div>
-            </div>
-            <p>Hello, this is a Company Profile page</p>
-            {/* <Link to ='/review'>
-                <button className='newReview'>
-                    Create a New Review
-                </button>
-            </Link> */}
-            <Link to ='/'>
-                <button className='backhome'> 
-                    Take me back home
-                </button>
-            </Link>
+           
+            
 
             <div>
             <CompanyInfo/>
-            display company profile here
             </div>
                  
             
