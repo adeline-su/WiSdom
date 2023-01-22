@@ -163,14 +163,14 @@ const Home = () => {
                         onChange={(e) => setSearchInput(e.target.value)}
                         value={searchInput} />
 
-                        <table>
-                            <tr>
+                        <table >
+                            {/* <tr>
                                 <th>Organization Name:</th>
-                            </tr>                    
+                            </tr>                     */}
 
                             {/* one sample thingy */}
                             {searchResults().map((company) => (
-                                <div>
+                                <div className = 'resultbox'>
                                 <tr>
                                     <td>{company.OrganizationName}</td>
                                     {/* <td>{country.continent}</td> */}
