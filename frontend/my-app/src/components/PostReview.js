@@ -50,7 +50,7 @@ function PostReviewBox() {
     //const navigate = useNavigate
 
     return ( 
-     <div style={{marginTop : 250}}>
+     <div style={{marginTop : 100}}>
 
      {/* this is the tutorial
      <div className="App" style={{marginTop : 250}}>
