@@ -16,8 +16,10 @@
   }
 
   .body-wrapper {
-    width: 100vw !important;
     border-radius: 15px;
+    background-color: var(--darkblue);
+    margin: 12px;
+    padding: 12px;
   }
 
   nav-bar {
@@ -41,13 +43,7 @@
   font-weight: normal;
 }
 
-.body-wrapper {
-  margin: auto;
-  width: 100vh;
-  height: 100vh;
-  background-color: var(--darkblue);
-  position: relative;
-}
+
 
 .page-wrapper {
   padding: 24px;
@@ -72,25 +68,7 @@
 
 }
 
-nav-bar {
-  position: relative;
-  font-size: 12px;
-  /* background-color: var(--color3); */
-  /* bottom: 0; */
-  /* top: 0; */
-  /* width: 400px;
-  height: 200px; */
-  /* width: calc(100vh - 100px); */
-  padding: 60px;
 
-  /* padding-left: 10px;
-  padding-right: 10px; */
-  /* margin: auto; */
-  /* color: var(--color3); */
-  max-height: 48px;
-  box-shadow: 10px, 10px, 10px var(--shadow);
-
-}
 
 a:link {
   text-decoration: none;
@@ -143,17 +121,16 @@ button {
   font-size: 40px;
   color: var(--dark);
   font-weight: normal;
-  margin-left: 192px;
   margin-bottom: 24px;
-  text-align: left;
-  margin-top: 12vh;
+  text-align: center;
+  margin-top: 94px;
 }
 
 .App {
   text-align: center;
 }
 
-.searchbox{ 
+.searchbar{ 
 position: relative;
 background: #FFFFFF;
 border-radius: 15px;
@@ -167,11 +144,9 @@ margin: 10px;
 
 .description{
   font-size: 20px;
-  margin-left: 192px;
-  margin-right: 96px;
   margin-top: 10px;
-  margin-bottom: 24px;
-  text-align: left;
+  margin-bottom: 64px;
+  text-align: center;
   max-width: 35%;
   letter-spacing: 1px;
   line-height: 1.2;
