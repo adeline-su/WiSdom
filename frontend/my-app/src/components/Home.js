@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import { Link, useNavigate, redirect } from "react-router-dom"
 import NavBar from './NavBar';
 
-import handleSubmit from '../handlesubmit';
 import { useRef } from 'react';
-import { getDatabase, ref, set, onValue, get } from "firebase/database";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 import { collection, doc, setDoc } from "firebase/firestore"; 
 
 const database = getDatabase();
 
+
 // function writeUserData(data) {
-//     const db = getDatabase();
+//     const db = getDatabase();s
 //     set(ref(db, 'testing3!!!'), {
 //       test_key:data
 //     });
@@ -21,32 +21,32 @@ const Home = () => {
     const navigate = useNavigate()
     const [searchInput, setSearchInput] = useState("")
 
-    // const countries2 = [
-    //     { name: "Belgium", continent: "Europe" },
-    //     { name: "India", continent: "Asia" },
-    //     { name: "Bolivia", continent: "South America" },
-    //     { name: "Ghana", continent: "Africa" },
-    //     { name: "Japan", continent: "Asia" },
-    //     { name: "Canada", continent: "North America" },
-    //     { name: "New Zealand", continent: "Australasia" },
-    //     { name: "Italy", continent: "Europe" },
-    //     { name: "South Africa", continent: "Africa" },
-    //     { name: "China", continent: "Asia" },
-    //     { name: "Paraguay", continent: "South America" },
-    //     { name: "Usa", continent: "North America" },
-    //     { name: "France", continent: "Europe" },
-    //     { name: "Botswana", continent: "Africa" },
-    //     { name: "Spain", continent: "Europe" },
-    //     { name: "Senegal", continent: "Africa" },
-    //     { name: "Brazil", continent: "South America" },
-    //     { name: "Denmark", continent: "Europe" },
-    //     { name: "Mexico", continent: "South America" },
-    //     { name: "Australia", continent: "Australasia" },
-    //     { name: "Tanzania", continent: "Africa" },
-    //     { name: "Bangladesh", continent: "Asia" },
-    //     { name: "Portugal", continent: "Europe" },
-    //     { name: "Pakistan", continent: "Asia" }
-    // ];
+    const countries = [
+        { name: "Belgium", continent: "Europe" },
+        { name: "India", continent: "Asia" },
+        { name: "Bolivia", continent: "South America" },
+        { name: "Ghana", continent: "Africa" },
+        { name: "Japan", continent: "Asia" },
+        { name: "Canada", continent: "North America" },
+        { name: "New Zealand", continent: "Australasia" },
+        { name: "Italy", continent: "Europe" },
+        { name: "South Africa", continent: "Africa" },
+        { name: "China", continent: "Asia" },
+        { name: "Paraguay", continent: "South America" },
+        { name: "Usa", continent: "North America" },
+        { name: "France", continent: "Europe" },
+        { name: "Botswana", continent: "Africa" },
+        { name: "Spain", continent: "Europe" },
+        { name: "Senegal", continent: "Africa" },
+        { name: "Brazil", continent: "South America" },
+        { name: "Denmark", continent: "Europe" },
+        { name: "Mexico", continent: "South America" },
+        { name: "Australia", continent: "Australasia" },
+        { name: "Tanzania", continent: "Africa" },
+        { name: "Bangladesh", continent: "Asia" },
+        { name: "Portugal", continent: "Europe" },
+        { name: "Pakistan", continent: "Asia" }
+    ];
 
     // const countries = [
     //     { "name": "Belgium", "continent": "Europe" },
@@ -83,18 +83,20 @@ const Home = () => {
     //         "Rank": "4"
     //     }]
     
+    //fetches from firebase
     var data_values;
     onValue(ref(database, '/Companies'), (snapshot) => {
         const data = snapshot.val();
-        // const data_keys = Object.keys(data);
+        const data_keys = Object.keys(data);
         data_values = Object.values(data);
 
         console.log(data_values[0].OrganizationName);
         console.log(data_values[0]);
 
-        console.log(data_values.length);
+        console.log(data_values);
         // console.log(companies);
     });
+
     
     function searchResults() {
         if (searchInput.length > 0) {
@@ -105,16 +107,16 @@ const Home = () => {
         }
     }
 
-    // function searchResultsCountries() {
-    //     if (searchInput.length > 0) {
-    //         const data_filtered = countries.filter((country) => country.name.match(searchInput));
-    //         return data_filtered;
-    //     } else {
-    //         return countries;
-    //     }
-    // }
+    function searchResultsCountries() {
+        if (searchInput.length > 0) {
+            const data_filtered = countries.filter((country) => country.name.match(searchInput));
+            return data_filtered;
+        } else {
+            return countries;
+        }
+    }
 
-    // function searchResultsCountries2() { 
+    // function searchResultsCountries2() {
     //     if (searchInput.length > 0) {
     //         const data_filtered = countries2.filter((country) => country.name.match(searchInput));
     //         return data_filtered;
@@ -127,30 +129,30 @@ const Home = () => {
     //     if (searchInput.length > 0) {
     //         const data_filtered = companies.filter((company) => company.OrganizationName.match(searchInput));
     //         return data_filtered;
-    //     } else { 
+    //     } else {
     //         return companies;
     //     }
     // }
 
     //posting to firebase:
-    // const dataRef = useRef()
-    // const submithandler = (e) => {
-    //     e.preventDefault()
-    //     handleSubmit(dataRef.current.value)
-    //     dataRef.current.value = ""
-    // }
+    const dataRef = useRef()
+    const submithandler = (e) => {
+        e.preventDefault()
+        handleSubmit(dataRef.current.value)
+        dataRef.current.value = ""
+    }
 
     return (
-        <div className='body-wrapper'>
+        <div className='page-wrapper'>
             <div className='nav-wrapper'>
-            <NavBar/>
+                <NavBar/>
             </div>
-            <div className='page-wrapper'>
+            <div className='body-wrapper'>
                     <div className='title'>
-                        Welcome to WiSdom!
+                        WiSdom
                     </div>
                     <div className='description'>
-                        WiSdom is a space for women and non-binary individuals to connect, explore and further understand their career paths and futures within STEM industries. Get started below:  
+                        WiSdom is a space for women and non-binary individuals to connect, explore and further understand their career paths and futures within STEM industries. Begin gaining WiSdom today!  
                     </div>
 
                 <p>Find an Organization: </p>
@@ -160,23 +162,25 @@ const Home = () => {
                         placeholder="Search here"
                         onChange={(e) => setSearchInput(e.target.value)}
                         value={searchInput} />
-
+            </div>
+            <div className='block-wrapper'>
                     <table>
                     <tr>
                         <th>Organization Name:</th>
                     </tr>                    
-
-                    {/* one sample thingy */}
-                    {searchResults().map((company) => (
+                    
+                    {searchResultsCountries().map((country) => (
                         <div>
                         <tr>
-                            <td>{company.OrganizationName}</td>
+                            <td>{country.name}</td>
                             {/* <td>{country.continent}</td> */}
                         </tr>
                         </div>
                     ))}
                     
                     </table>
+
+                    
                 </div>
 
                 {/* <div className="App">
