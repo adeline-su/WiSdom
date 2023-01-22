@@ -1,46 +1,84 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, redirect } from "react-router-dom";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+//import { getDatabase, ref, set, onValue } from "firebase/database";
 import handleSubmit from '../handlesubmit';
+//import { database } from "../firebase";
+import { getDatabase, ref, child, push, update } from "firebase/database";
+
 
 //post to firebase
 
+const database = getDatabase();
 
+//name, a, b, b - rate out of five
 
-function writeUserData(data) {
-const db = getDatabase();
-set(ref(db, 'testing3!!!'), {
-    test_key:data
-});}
+// function writeUserData(data) {
+// const db = getDatabase();
+// set(ref(db, 'testing3!!!'), {
+//     test_key:data
+// })}
 
 
 //const [description, setdescritpion] = useState('')
 
-const PostReviewBox = () => {
-     const [reviewInput, setReviewInput] = useState("")
-     const dataRef = useRef()
 
-     const submithandler = (e) => {
-          e.preventDefault()
-          handleSubmit(dataRef.current.value)
-          dataRef.current.value = ""
+
+
+
+function PostReviewBox() {
+     const [reviewInput, setReviewInput] = useState('')
+
+
+
+     //Push Function
+     const Push = () => {
+          const db = getDatabase();
+          const postData = {
+               Name : "Placeholder name",
+                Message : reviewInput
+             };
+          const newPostKey = push(child(ref(db), 'posts')).key;
+          const updates = {}
+          updates['/posts/' + newPostKey] = postData
+          update(ref(db), updates)
+     //      db.ref("/Reviews").set({
+     //      Name : "Placeholder name",
+     //      Message : reviewInput,
+     // }).catch(alert);
      }
 
-    const navigate = useNavigate
+    //const navigate = useNavigate
 
     return ( 
-     <div>
+     <div style={{marginTop : 250}}>
+
+     {/* this is the tutorial
+     <div className="App" style={{marginTop : 250}}>
+      <center>
+      <input placeholder="Enter your name" value={name} 
+      onChange={(e) => setName(e.target.value)}/>
+      <br/><br/>
+      <input placeholder="Enter your age" value={age} 
+      onChange={(e) => setAge(e.target.value)}/>
+      <br/><br/> 
+      <button onClick={Push}>PUSH</button>
+      </center>
+    </div> */}
           <p> Post your review! </p>
 
-          <form onSubmit={submithandler}>
+          {/* <form onSubmit={submithandler}> */}
                <input className = 'reviewbox'
                     type = "text"
                     placeholder="Share you experience at this company"
                     onChange={(e) => setReviewInput(e.target.value)}
                     value={reviewInput} />
                     {console.log("Log:",reviewInput)}
-                    <button  onClick={writeUserData(reviewInput)}>Submit</button>
-          </form>
+
+                    <br/><br/>
+
+                    <button  onClick={Push}>Submit!</button>
+                    
+          {/* </form> */}
           
           {/* <div className="App">
                <form onSubmit={submithandler}>

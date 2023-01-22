@@ -18,7 +18,7 @@ const database = getDatabase();
 
 const Home = () => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate() 
     const [searchInput, setSearchInput] = useState("")
 
     const countries = [
