@@ -3,14 +3,14 @@
 :root {
   --lightblue: #b0cddd;
   --darkblue: #84b6d1;
-  --color3: #ff00cc;
+  --dark: #3366ff;
   --color4: #fbff00;
 
 }
 
 @media only screen and (max-width: 1440px) {
   body {
-    background-color: var(--color4)
+    background-color: var(--lightblue)
   }
 
   .body-wrapper {
@@ -23,7 +23,6 @@
 }
 
 * {
-  background-color: var(--lightblue);
   font-family: 'Sora', sans-serif;
   font-size: 30px;
 }
@@ -32,7 +31,7 @@
   margin: auto;
   width: 100vh;
   height: 100vh;
-  background-color: var(--color4);
+  background-color: var(--lightblue);
   position: relative;
 }
 
@@ -66,11 +65,13 @@ nav-bar {
 .nav-links {
   display: flex;
   justify-content: space-between;
+  background-color: var(--darkblue);
+  color: var(--light);
 }
 
 button {
   margin: auto;
-  background-color: var(--light);
+  background-color: var(--lightblue);
   border: 0;
   width: 100%;
   font-size: 16px;
@@ -83,48 +84,3 @@ button {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-#myProgress {
-  width: 100%;
-  background-color: grey;
-}
-
-#myBar {
-  width: 1%;
-  height: 30px;
-  background-color: green;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
