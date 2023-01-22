@@ -143,44 +143,43 @@ const Home = () => {
 
     return (
         <div className='page-wrapper'>
-            <div className='nav-wrapper'>
-                <NavBar/>
-            </div>
-            <div className='body-wrapper'>
-                    <div className='title'>
+              <NavBar/>
+            <div className='title'>
                         WiSdom
                     </div>
                     <div className='description'>
                         WiSdom is a space for women and non-binary individuals to connect, explore and further understand their career paths and futures within STEM industries. Begin gaining WiSdom today!  
                     </div>
-
-                <p>Find an Organization: </p>
+            <div className='body-wrapper'>
+            <p>Find an Organization: </p>
                 <div>
                     <input className = 'searchbox'
                         type="search"
                         placeholder="Search here"
                         onChange={(e) => setSearchInput(e.target.value)}
                         value={searchInput} />
-            </div>
-            <div className='block-wrapper'>
+                </div>
                     <table>
                     <tr>
                         <th>Organization Name:</th>
                     </tr>                    
+                   <div className='searchresult'>
+                        {searchResultsCountries().map((country) => (
+                            <div>
+                            <tr>
+                                <td>{country.name}</td>
+                                {/* <td>{country.continent}</td> */}
+                            </tr>
+                            </div>
+                          ))}
+                   </div>
                     
-                    {searchResultsCountries().map((country) => (
-                        <div>
-                        <tr>
-                            <td>{country.name}</td>
-                            {/* <td>{country.continent}</td> */}
-                        </tr>
-                        </div>
-                    ))}
+                  
                     
                     </table>
 
                     
-                </div>
+                
 
                 {/* <div className="App">
                     <form onSubmit={submithandler}>
