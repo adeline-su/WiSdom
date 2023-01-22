@@ -37,7 +37,7 @@ website_array_emp = []
 i = 0
 scrape_result = {}
 while i < 400 : #get the first 400 results from the source website
-    scrape_result[website_table_orgName[i].string] ={"Organization Name": website_table_orgName[i].string,
+    scrape_result[website_table_orgName[i].string] ={"OrganizationName": website_table_orgName[i].string,
                                                      "Rank": website_table_rank[i].string[:-1], 
                                                     "Industries" : website_table_industries[i].string,
                                                     "Country" : website_table_country[i].string,

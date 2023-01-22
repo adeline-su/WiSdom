@@ -83,31 +83,28 @@ const Home = () => {
     var data_companyinfo;
     // var data_companyinfo2;
     // var data_keys = "";
-    var data_list = [];
+    var data_array = [];
+    var data_json = [];
+    var data_values;
     const readData = () => {
         onValue(ref(database, '/Companies'), (snapshot) => {
             const data = snapshot.val();
             const data_keys = Object.keys(data);
-            data_companyinfo = data[data_keys[0]];
-            console.log(data_companyinfo);
-            // console.log(data_companyinfo2);
-            console.log(data_keys.length);
+            data_values = Object.values(data);
 
-            for (let i = 0; i < data_keys.length; i++) {
-                data_list.push(data[data_keys[i]]); 
-                // data_list.push(data[data_keys[i]]); 
-            }
-            console.log(data_list.length);
-            
-            console.log("i;m about to show u the 400th company");
-            console.log(data_list);
-            console.log(countries);
+            console.log(data_values[0].OrganizationName);
+            // for (let i = 0; i < data_keys.length; i++) {
+            //     // data_json.push(JSON.stringify(data[data_keys[i]]));
+            //     data_json.push(data[data_keys[i]]); 
+            // }
+
+            console.log(data_values);
             
         });
-        return data_list;
+        return data_values;
     }
 
-    const createRowDictionary = (data_list) => {
+    const createRowDictionary = (data_array) => {
 
 
     }
@@ -116,10 +113,10 @@ const Home = () => {
     
     function searchResults() {
         if (searchInput.length > 0) {
-            const data_filtered = data_list.filter((company) => company.name.match(searchInput));
-            return data_filtered;
+            const data_filtered = data_values.filter((company) => company.Country.name.match(searchInput));
+            return data_filtered.Country;
         } else {
-            return data_list;
+            return data_json.Country;
         }
     }
 
@@ -163,18 +160,10 @@ const Home = () => {
                         {/* <td>{company.name}</td>
                         <td>{country.continent}</td> */}
                     </tr>
-                    </div>
-                        
+                    </div>                        
                     
-                    {searchResults().map((company) => (
-                        <div>
-                        <tr>
-                            <td>{company}</td>
-                            {/* <td>{company.name}</td>
-                            <td>{country.continent}</td> */}
-                        </tr>
-                        </div>
-                    ))}
+                    
+                    
                     </table>
                 </div>
 
