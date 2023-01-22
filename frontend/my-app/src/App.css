@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Sora:wght@400;500;600;700&display=swap');
 
 :root {
-  --lightblue: #b0cddd;
-  --darkblue: #84b6d1;
-  --dark: #3366ff;
-  --color4: #fbff00;
+  --lightblue: #D7E0F8;
+  --darkblue: #9EB4EC;
+  --dark: #000000;
+  --shadow: 0px 2px 8px 2px rgba(60, 53, 48, 0.06);
+
 
 }
 
@@ -18,13 +19,24 @@
   }
 
   nav-bar {
-    width: calc(100vw - 1440px) !important;
+    width: 100%;
+    box-shadow: var(--shadow);
+    color: var(--dark);
+    background-color: var(--darkblue);
+    max-height: 48px;
+    font-size: 12px;
+    box-shadow: 10px, 10px, 10px var(--shadow);
+
+
   }
 }
 
 * {
   font-family: 'Sora', sans-serif;
   font-size: 30px;
+  color: var(--dark);
+  margin: auto;
+  font-weight: normal;
 }
 
 .body-wrapper {
@@ -38,49 +50,118 @@
 .page-wrapper {
   padding: 24px;
   color: var(--dark);
+  
 }
 
 .nav-wrapper {
-  padding: 24px;
+  text-align: right;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 12px;
   background-color: var(--darkblue);
   color: var(--darkblue);
+  max-height: 48px;
+  box-shadow: 10px, 10px, 10px var(--shadow);
+
 }
 
 nav-bar {
   position: relative;
-
+  font-size: 12px;
   /* background-color: var(--color3); */
   /* bottom: 0; */
   /* top: 0; */
   /* width: 400px;
   height: 200px; */
   /* width: calc(100vh - 100px); */
-  padding: 1440px;
+  padding: auto;
+
   /* padding-left: 10px;
   padding-right: 10px; */
   /* margin: auto; */
   /* color: var(--color3); */
+  max-height: 48px;
+  box-shadow: 10px, 10px, 10px var(--shadow);
+
 }
+
+a:link {
+  text-decoration: none;
+  font-size: 20px;
+
+}
+
+/* visited link */
+a:visited {
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  font-weight: bolder;
+  background: rgba(105, 136, 216, 0.3);
+  border-radius: 15px;
+  padding: 5px;
+  max-height: 48px;
+
+}
+
 
 .nav-links {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   background-color: var(--darkblue);
-  color: var(--light);
+  max-height: 48px;
+  font-size: 12px;
+
 }
 
 button {
-  margin: auto;
-  background-color: var(--lightblue);
+  margin: 10px;
+  background:  rgba(158,180,236, 0.7);
   border: 0;
-  width: 100%;
+  width: relative;
+  height: relative;
+  text-align: center;
   font-size: 16px;
   font-weight: 600;
-  padding: 16px;
-  border-radius: 2px;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+
+}
+
+.title {
+  font-family: 'Sora', sans-serif;
+  font-size: 40px;
+  color: var(--dark);
+  font-weight: normal;
+  margin: 10px;
+
 }
 
 .App {
   text-align: center;
 }
 
+.searchbox{ 
+position: relative;
+background: #FFFFFF;
+border-radius: 15px;
+width: 50%;
+width: 750px;
+height: 54px;
+text-indent: 50px;
+margin: 10px;
+
+}
+
+.description{
+  font-size: 18px;
+  margin-left: 96px;
+  margin-right: 96px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+
+}
