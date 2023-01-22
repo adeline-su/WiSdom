@@ -44,32 +44,30 @@ const Home = () => {
     const [searchInput, setSearchInput] = useState("")
 
     const countries = [
-
-    { name: "Belgium", continent: "Europe" },
-    { name: "India", continent: "Asia" },
-    { name: "Bolivia", continent: "South America" },
-    { name: "Ghana", continent: "Africa" },
-    { name: "Japan", continent: "Asia" },
-    { name: "Canada", continent: "North America" },
-    { name: "New Zealand", continent: "Australasia" },
-    { name: "Italy", continent: "Europe" },
-    { name: "South Africa", continent: "Africa" },
-    { name: "China", continent: "Asia" },
-    { name: "Paraguay", continent: "South America" },
-    { name: "Usa", continent: "North America" },
-    { name: "France", continent: "Europe" },
-    { name: "Botswana", continent: "Africa" },
-    { name: "Spain", continent: "Europe" },
-    { name: "Senegal", continent: "Africa" },
-    { name: "Brazil", continent: "South America" },
-    { name: "Denmark", continent: "Europe" },
-    { name: "Mexico", continent: "South America" },
-    { name: "Australia", continent: "Australasia" },
-    { name: "Tanzania", continent: "Africa" },
-    { name: "Bangladesh", continent: "Asia" },
-    { name: "Portugal", continent: "Europe" },
-    { name: "Pakistan", continent: "Asia" }
-
+        { name: "Belgium", continent: "Europe" },
+        { name: "India", continent: "Asia" },
+        { name: "Bolivia", continent: "South America" },
+        { name: "Ghana", continent: "Africa" },
+        { name: "Japan", continent: "Asia" },
+        { name: "Canada", continent: "North America" },
+        { name: "New Zealand", continent: "Australasia" },
+        { name: "Italy", continent: "Europe" },
+        { name: "South Africa", continent: "Africa" },
+        { name: "China", continent: "Asia" },
+        { name: "Paraguay", continent: "South America" },
+        { name: "Usa", continent: "North America" },
+        { name: "France", continent: "Europe" },
+        { name: "Botswana", continent: "Africa" },
+        { name: "Spain", continent: "Europe" },
+        { name: "Senegal", continent: "Africa" },
+        { name: "Brazil", continent: "South America" },
+        { name: "Denmark", continent: "Europe" },
+        { name: "Mexico", continent: "South America" },
+        { name: "Australia", continent: "Australasia" },
+        { name: "Tanzania", continent: "Africa" },
+        { name: "Bangladesh", continent: "Asia" },
+        { name: "Portugal", continent: "Europe" },
+        { name: "Pakistan", continent: "Asia" }
     ];
 
     // const [data, setData] = useState([]);
@@ -81,25 +79,47 @@ const Home = () => {
     //     });
     //     return data;
     // }
-    var data;
-    const readUserData = () => {
+    // var data;
+    var data_companyinfo;
+    // var data_companyinfo2;
+    // var data_keys = "";
+    var data_list = [];
+    const readData = () => {
         onValue(ref(database, '/Companies'), (snapshot) => {
-            data = snapshot.val();
-            console.log(data);
-            console.log(Object.keys(data));
-            console.log("i've visited readUserData");
+            const data = snapshot.val();
+            const data_keys = Object.keys(data);
+            data_companyinfo = data[data_keys[0]];
+            console.log(data_companyinfo);
+            // console.log(data_companyinfo2);
+            console.log(data_keys.length);
+
+            for (let i = 0; i < data_keys.length; i++) {
+                data_list.push(data[data_keys[i]]); 
+                // data_list.push(data[data_keys[i]]); 
+            }
+            console.log(data_list.length);
+            
+            console.log("i;m about to show u the 400th company");
+            console.log(data_list);
+            console.log(countries);
+            
         });
-        return data;
+        return data_list;
+    }
+
+    const createRowDictionary = (data_list) => {
+
+
     }
 
     // const countries_upper = countries.map(x => {name: x.name.toUpperCase(), continent: x.continent});
     
     function searchResults() {
         if (searchInput.length > 0) {
-            const countries_filtered = countries.filter((country) => country.name.match(searchInput));
-            return countries_filtered;
+            const data_filtered = data_list.filter((company) => company.name.match(searchInput));
+            return data_filtered;
         } else {
-            return countries;
+            return data_list;
         }
     }
 
@@ -137,12 +157,21 @@ const Home = () => {
                         <th>Country</th>
                         <th>Continent</th>
                     </tr>
+                    <div>
+                    <tr>
+                        <td>hi</td>
+                        {/* <td>{company.name}</td>
+                        <td>{country.continent}</td> */}
+                    </tr>
+                    </div>
+                        
                     
-                    {searchResults().map((country) => (
+                    {searchResults().map((company) => (
                         <div>
                         <tr>
-                            <td>{country.name}</td>
-                            <td>{country.continent}</td>
+                            <td>{company}</td>
+                            {/* <td>{company.name}</td>
+                            <td>{country.continent}</td> */}
                         </tr>
                         </div>
                     ))}
@@ -159,7 +188,7 @@ const Home = () => {
                 <button onClick={writeUserData("hello")}>this is a button to submit "hello"</button>
                 <p>companies, read from firebase: </p>
                 
-                <p>{readUserData()}</p>
+                <p>{readData()}</p>
             </div>
         </div>
     )
