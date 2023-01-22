@@ -12,10 +12,12 @@
 @media only screen and (max-width: 1440px) {
   body {
     background-color: var(--lightblue)
+    
   }
 
   .body-wrapper {
     width: 100vw !important;
+    border-radius: 15px;
   }
 
   nav-bar {
@@ -43,18 +45,18 @@
   margin: auto;
   width: 100vh;
   height: 100vh;
-  background-color: var(--lightblue);
+  background-color: var(--darkblue);
   position: relative;
 }
 
 .page-wrapper {
   padding: 24px;
-  color: var(--dark);
+  color: var(--lightblue);
   
 }
 
+/* changes the font I think and placement? */
 .nav-wrapper {
-  text-align: right;
   padding-top: 16px;
   padding-bottom: 16px;
   font-size: 12px;
@@ -62,6 +64,11 @@
   color: var(--darkblue);
   max-height: 48px;
   box-shadow: 10px, 10px, 10px var(--shadow);
+  position: absolute;
+  width: 1440px;
+  left: 0px;
+  top: 0px;
+
 
 }
 
@@ -74,7 +81,7 @@ nav-bar {
   /* width: 400px;
   height: 200px; */
   /* width: calc(100vh - 100px); */
-  padding: auto;
+  padding: 60px;
 
   /* padding-left: 10px;
   padding-right: 10px; */
@@ -136,8 +143,10 @@ button {
   font-size: 40px;
   color: var(--dark);
   font-weight: normal;
-  margin: 10px;
-
+  margin-left: 192px;
+  margin-bottom: 24px;
+  text-align: left;
+  margin-top: 12vh;
 }
 
 .App {
@@ -157,11 +166,17 @@ margin: 10px;
 }
 
 .description{
-  font-size: 18px;
-  margin-left: 96px;
+  font-size: 20px;
+  margin-left: 192px;
   margin-right: 96px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 24px;
+  text-align: left;
+  max-width: 35%;
+  letter-spacing: 1px;
+  line-height: 1.2;
+
+
 
 
 }
