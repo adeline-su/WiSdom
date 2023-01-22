@@ -9,41 +9,19 @@ import { collection, doc, setDoc } from "firebase/firestore";
 
 const database = getDatabase();
 
-function writeUserData(data) {
-    const db = getDatabase();
-    set(ref(db, 'testing3!!!'), {
-      test_key:data
-    });
-  }
-
-
-
-// var ref1 = firebase.database().ref();
-
-// ref1.on("value", function(snapshot) {
-//    console.log(snapshot.val());
-// }, function (error) {
-//    console.log("Error: " + error.code);
-// });
-
-
-
-// function writeUserData(userId, name, email, imageUrl) {
-//   const db = getDatabase();
-//   set(ref(db, 'users/' + userId), {
-//     username: name,
-//     email: email,
-//     profile_picture : imageUrl
-//   });
+// function writeUserData(data) {
+//     const db = getDatabase();
+//     set(ref(db, 'testing3!!!'), {
+//       test_key:data
+//     });
 // }
 
 const Home = () => {
 
     const navigate = useNavigate()
-
     const [searchInput, setSearchInput] = useState("")
 
-    const countries2 = [
+    const countries = [
         { name: "Belgium", continent: "Europe" },
         { name: "India", continent: "Asia" },
         { name: "Bolivia", continent: "South America" },
@@ -70,43 +48,41 @@ const Home = () => {
         { name: "Pakistan", continent: "Asia" }
     ];
 
-    const countries = [
-        { "name": "Belgium", "continent": "Europe" },
-        { "name": "India", "continent": "Asia" },
-        { "name": "Bolivia", "continent": "South America" }]
+    // const countries = [
+    //     { "name": "Belgium", "continent": "Europe" },
+    //     { "name": "India", "continent": "Asia" },
+    //     { "name": "Bolivia", "continent": "South America" }]
 
-    const companies = [
-        {
-            "Country": "Colombia",
-            "Employees": "13,000",
-            "Industries": "Construction, Oil & Gas Operations, Mining and Chemicals",
-            "OrganizationName": "Grupo Argos",
-            "Rank": "1"
-        },
-        {
-            "Country": "United States",
-            "Employees": "9,000",
-            "Industries": "Retail and Wholesale",
-            "OrganizationName": "Clorox",
-            "Rank": "2"
-        },
-        {
-            "Country": "France",
-            "Employees": "8,000",
-            "Industries": "Insurance",
-            "OrganizationName": "MAIF",
-            "Rank": "3"
-        },
-        {
-            "Country": "Canada",
-            "Employees": "53,783",
-            "Industries": "Banking and Financial Services",
-            "OrganizationName": "Desjardins Group",
-            "Rank": "4"
-        }]
-
+    // const companies = [
+    //     {
+    //         "Country": "Colombia",
+    //         "Employees": "13,000",
+    //         "Industries": "Construction, Oil & Gas Operations, Mining and Chemicals",
+    //         "OrganizationName": "Grupo Argos",
+    //         "Rank": "1"
+    //     },
+    //     {
+    //         "Country": "United States",
+    //         "Employees": "9,000",
+    //         "Industries": "Retail and Wholesale",
+    //         "OrganizationName": "Clorox",
+    //         "Rank": "2"
+    //     },
+    //     {
+    //         "Country": "France",
+    //         "Employees": "8,000",
+    //         "Industries": "Insurance",
+    //         "OrganizationName": "MAIF",
+    //         "Rank": "3"
+    //     },
+    //     {
+    //         "Country": "Canada",
+    //         "Employees": "53,783",
+    //         "Industries": "Banking and Financial Services",
+    //         "OrganizationName": "Desjardins Group",
+    //         "Rank": "4"
+    //     }]
     
-
     var data_values;
     onValue(ref(database, '/Companies'), (snapshot) => {
         const data = snapshot.val();
@@ -115,43 +91,11 @@ const Home = () => {
 
         console.log(data_values[0].OrganizationName);
         console.log(data_values[0]);
-        // for (let i = 0; i < data_keys.length; i++) {
-        //     // data_json.push(JSON.stringify(data[data_keys[i]]));
-        //     data_json.push(data[data_keys[i]]); 
-        // }
 
         console.log(data_values);
-        console.log(companies);
-        // console.log(Object.values(data_values[1]).Country);
+        // console.log(companies);
     });
 
-    // function readData() {
-    //     onValue(ref(database, '/Companies'), (snapshot) => {
-    //         const data = snapshot.val();
-    //         const data_keys = Object.keys(data);
-    //         data_values = Object.values(data);
-
-    //         console.log(data_values[0].OrganizationName);
-    //         console.log(data_values[0]);
-    //         // for (let i = 0; i < data_keys.length; i++) {
-    //         //     // data_json.push(JSON.stringify(data[data_keys[i]]));
-    //         //     data_json.push(data[data_keys[i]]); 
-    //         // }
-
-    //         console.log(data_values);
-    //         console.log(companies);
-    //         // console.log(Object.values(data_values[1]).Country);
-            
-    //     });
-    //     return data_values;
-    // }
-
-    const createRowDictionary = (data_array) => {
-
-
-    }
-
-    // const countries_upper = countries.map(x => {name: x.name.toUpperCase(), continent: x.continent});
     
     function searchResults() {
         if (searchInput.length > 0) {
@@ -171,23 +115,23 @@ const Home = () => {
         }
     }
 
-    function searchResultsCountries2() {
-        if (searchInput.length > 0) {
-            const data_filtered = countries2.filter((country) => country.name.match(searchInput));
-            return data_filtered;
-        } else {
-            return countries2;
-        }
-    }
+    // function searchResultsCountries2() {
+    //     if (searchInput.length > 0) {
+    //         const data_filtered = countries2.filter((country) => country.name.match(searchInput));
+    //         return data_filtered;
+    //     } else {
+    //         return countries2;
+    //     }
+    // }
 
-    function searchResultsCompanies() {
-        if (searchInput.length > 0) {
-            const data_filtered = companies.filter((company) => company.OrganizationName.match(searchInput));
-            return data_filtered;
-        } else {
-            return companies;
-        }
-    }
+    // function searchResultsCompanies() {
+    //     if (searchInput.length > 0) {
+    //         const data_filtered = companies.filter((company) => company.OrganizationName.match(searchInput));
+    //         return data_filtered;
+    //     } else {
+    //         return companies;
+    //     }
+    // }
 
     //posting to firebase:
     const dataRef = useRef()
@@ -196,16 +140,6 @@ const Home = () => {
         handleSubmit(dataRef.current.value)
         dataRef.current.value = ""
     }
-
-    // const displayHTMLBlocks = (results) => {
-    //     // var component = <div></div>;
-    //     for (let i = 0; i < results.length; i++) {
-    //         document.getElementById("add_to_me").innerHTML+= "<div><tr><td>more</td></tr></div>";
-    //         console.log("i am iterating");
-    //     }
-    //     // console.log(component);
-    //     // return component;
-    // }
 
     return (
         <div className='body-wrapper'>
@@ -230,14 +164,13 @@ const Home = () => {
 
                     <table>
                     <tr>
-                        <th>Country</th>
-                        <th>Continent</th>
+                        <th>Organization Name:</th>
                     </tr>                    
                     
-                    {searchResults().map((company) => (
+                    {searchResultsCountries().map((country) => (
                         <div>
                         <tr>
-                            <td>{company.OrganizationName}</td>
+                            <td>{country.name}</td>
                             {/* <td>{country.continent}</td> */}
                         </tr>
                         </div>
@@ -248,7 +181,7 @@ const Home = () => {
                     
                 </div>
 
-                <div className="App">
+                {/* <div className="App">
                     <form onSubmit={submithandler}>
                         <input type= "text" ref={dataRef} />
                         <button type = "submit">Save</button>
@@ -256,7 +189,7 @@ const Home = () => {
                 </div>
 
                 <button onClick={writeUserData("hello")}>this is a button to submit "hello"</button>
-                <p>companies, read from firebase: </p>
+                <p>companies, read from firebase: </p> */}
                 
                 {/* <p>{readData()}</p> */}
                 
