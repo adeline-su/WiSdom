@@ -14,10 +14,6 @@ const Company = () => {
     return (
         
         <div className='page-wrapper'>
-
-           
-            
-
             <div>
             <CompanyInfo/>
             </div>

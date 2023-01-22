@@ -204,18 +204,17 @@ border-width: 2px;
 
 }
 
-.reviewbox1{
-  margin: 12px;
+.reviewbox{
+  font-size: 30px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   background: #FFFFFF;
   border-radius: 2px;
-  border-color: var(--dark);
-  border-style: solid;
-  border-width: 1px;
+  border: 1px solid var(--darl);
   /* text-align: left; */
   width: 750px;
-  height: min-content;
   text-indent: 25px;
-  text-align: start;
-  overflow-wrap: break-word;
-
+  word-wrap: break-word;  
+  word-break: break-all;
+  height:auto;
 }

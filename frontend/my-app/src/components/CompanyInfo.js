@@ -58,12 +58,6 @@ function CompanyInfo(){
                     {console.log("Hi",data_values[0])}             
                 </p>
             </div> 
-            <input className = 'reviewbox1'
-                    type = "text"
-                    placeholder="Share your experience at this company"
-                    onChange={(e) => setReviewInput(e.target.value)}
-                    value={reviewInput} />
-                    {console.log("Log:",reviewInput)}  
         </div>
     )
 }
